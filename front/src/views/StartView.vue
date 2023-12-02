@@ -29,11 +29,14 @@ export default {
        headers: {
          "Content-type": "application/json; charset=UTF-8"
        },
-       body: JSON.stringify({number: this.number})
+       body: JSON.stringify({number: this.number}),
+       mode: "no-cors"
      });
 let response = await responseStream.json()
-this.$router.push({ name: 'Ringing', params: { callsId: response.id }})
+console.log(response);
+this.$router.push({ name: 'ringing', params: { callsId: response.id }})
    },
+   
  },
-}
+};
 </script>

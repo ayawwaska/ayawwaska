@@ -4,6 +4,10 @@ const httpServer = express();
 const dialer = require('dialer').Dialer;
 const { Server } = require('socket.io');
 
+httpServer.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+   });
+
 const config = {
     url:'http://uni-call.fcc-online.pl',
     login:'focus15',
@@ -19,7 +23,7 @@ httpServer.get('/call/:number1/:number2', (req, res) =>{
     const number2 = req.params.number2;
     dialer.call (number1,number2);
     res.json({success: true});
-})
+});
 
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -49,8 +53,8 @@ httpServer.post('/call/', async (req, res) => {
       currentStatus === "BUSY" ||
       currentStatus === "NO ANSWER"
   ) {
-      console.log('stop')
-      clearInterval(interval)
+      console.log("stop");
+      clearInterval(interval);
   }
  }, 1000)
  res.json({ id: '123', status: bridge.STATUSES.NEW 
@@ -60,8 +64,7 @@ httpServer.post('/call/', async (req, res) => {
 
 
 
-const serverInstance = httpServer.listen(3000, 
-function () {
- console.log('Example app listening on port 3000!')
-})
-const io = new Server(serverInstance)
+
+
+
+
