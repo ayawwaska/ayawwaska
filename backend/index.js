@@ -1,4 +1,3 @@
-// const Dialer = require('dialer/src/Dialer');
 const express = require ('express');
 const httpServer = express();
 const dialer = require('dialer').Dialer;
@@ -6,8 +5,8 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const serverInstance = httpServer.listen(3001, function () {
-  console.log('Example app listening on port 3001!');
+const serverInstance = httpServer.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
 
 const io = new Server(serverInstance);
@@ -23,7 +22,7 @@ dialer.configure(config);
 httpServer.get('/call/:number1/:number2', (req, res) => {
   const number1 = req.params.number1;
   const number2 = req.params.number2;
-  dialer.call(number1,number2);
+  dialer.call(number1, number2);
   res.json({success: true});
 });
 
@@ -39,7 +38,6 @@ httpServer.post('/call/', async (req, res) => {
   const number1 = req.body.number;
   const number2 = '780725564';
   console.log('Dzwonie', number1, number2);
-  console.log(req.body);
   bridge = await dialer.call(number1, number2);
 
   let oldStatus = null;

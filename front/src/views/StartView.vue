@@ -26,10 +26,15 @@
         let responseStream = await fetch(`${process.env.VUE_APP_SERVER_URL}/call`, {
           method: "POST",
           headers: { "Content-type": "application/json; charset=UTF-8" },
-          body: JSON.stringify({number: this.number})
+          body: JSON.stringify({ number: this.number })
         });
-        let response = await responseStream.json();
-        this.$router.push({ name: 'ringing', params: { callsId: response?.id }});
+
+        if (responseStream.status !== 500 || responseStream.status !== 404) {
+          let response = await responseStream.json();
+          this.$router.push({ name: 'ringing', params: { callsId: response.id }});
+        } else {
+          this.$router.push({ name: 'failed' });
+        }
       }
     }
   }

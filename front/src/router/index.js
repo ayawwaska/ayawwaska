@@ -3,6 +3,7 @@ import StartView from '../views/StartView.vue';
 import RingingView from '../views/RingingView.vue';
 import ConnectedView from '../views/ConnectedView.vue';
 import AnsweredView from '../views/AnsweredView.vue';
+import FailedView from '../views/FailedView.vue';
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/answered',
     name: 'answered',
     component: AnsweredView
+  },
+  {
+    path: '/failed',
+    name: 'failed',
+    component: FailedView
   }
 ];
 const router = createRouter({
