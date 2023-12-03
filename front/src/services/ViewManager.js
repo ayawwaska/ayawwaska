@@ -1,14 +1,13 @@
-import router from '../router'
-import io from 'socket.io-client'
+import router from '../router';
+import io from 'socket.io-client';
+
 class ViewManager {
- constructor () {
-   this.interval = null;
-   this.status = null;
- }
+  constructor () {
+    this.interval = null;
+    this.status = null;
+  }
 
-
-
-changeView() {
+  changeView() {
     switch(this.status) {
       case 'CONNECTED':
         router.push({name: 'connected'});
@@ -23,19 +22,21 @@ changeView() {
         router.push({name: 'ringing'});
         break;
     }
-}
+  }
   
   checkStatus() {
     const socket = io(process.env.VUE_APP_SERVER_URL, {
-       reconnection: false,
-       transports: ["websocket", "polling"]
+      reconnection: false,
+      transports: ["websocket", "polling"]
     });
+
     socket.on('status', (status) => {
-        if(status !== this.status) {
-            this.status = status;
-            this.changeView();
-        }
-    })
+      if(status !== this.status) {
+        this.status = status;
+        this.changeView();
+      }
+    });
   }
 }
-export default new ViewManager()
+
+export default new ViewManager();

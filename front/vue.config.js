@@ -3,8 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     historyApiFallback: true,
-    allowedHosts: "all",
+    allowedHosts: 'all',
     host: 'localhost',
-    port: 8080,
-  },
+    port: 8081
+  }
 });

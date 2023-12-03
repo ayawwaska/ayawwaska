@@ -1,35 +1,35 @@
+import { createRouter, createWebHashHistory } from 'vue-router';
+import StartView from '../views/StartView.vue';
+import RingingView from '../views/RingingView.vue';
+import ConnectedView from '../views/ConnectedView.vue';
+import AnsweredView from '../views/AnsweredView.vue';
 
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Start from '../views/StartView.vue'
-import Ringing from '../views/RingingView.vue'
-import Connected from '../views/ConnectedView.vue'
-import Answered from '../views/AnsweredView.vue'
 const routes = [
- {
-   path: '/',
-   name: 'start',
-   component: Start
- },
- {
-   path: '/ringing',
-   name: 'ringing',
-   component: Ringing,
-   props: true
- },
- {
-   path: '/connected',
-   name: 'connected',
-   component: Connected
- },
- {
-  path: '/answered',
-  name: 'answered',
-  component: Answered
-},
-]
-
+  {
+    path: '/',
+    name: 'start',
+    component: StartView
+  },
+  {
+    path: '/ringing',
+    name: 'ringing',
+    component: RingingView,
+    props: true
+  },
+  {
+    path: '/connected',
+    name: 'connected',
+    component: ConnectedView
+  },
+  {
+    path: '/answered',
+    name: 'answered',
+    component: AnsweredView
+  }
+];
 const router = createRouter({
- history: createWebHashHistory(),
- routes
-})
-export default router
+  history: createWebHashHistory(),
+  routes
+});
+
+export default router;
