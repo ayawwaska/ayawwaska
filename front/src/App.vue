@@ -14,8 +14,8 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    background: rgb(255, 204, 0);
-    border-radius: 20px;
+    background: rgb(221, 224, 224);
+    border-radius: 10px;
     box-sizing: border-box;
     padding: 20px;
     text-align: center;
@@ -44,24 +44,26 @@
 
   .text {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 400;
     margin-top: 30px;
   }
 
   .header,
   .form-number {
-    margin-bottom: 50px;
+    margin-bottom: 55px;
   }
 
   .header {
+    color: rgb(67, 67, 67);
     margin-top: 50px;
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 600;
   }
 
   .form-label {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
+    color: rgb(67, 67, 67);
   }
 
   .form-number {
@@ -70,22 +72,23 @@
     padding: 20px;
     box-sizing: border-box;
     font-size: 28px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-align: center;
+    margin-top: 10px;
   }
 
   .call-button,
   .call-button-bottom {
     width: 300px;
-    height: 75px;
+    height: 55px;
     vertical-align: middle;
     font-size: 22px;
     font-weight: 600;
-    line-height: 75px;
-    background: #008000;
+    line-height: 55px;
+    background: #f8bce0;
     cursor: pointer;
-    color: #fff;
-    border-radius: 20px;
+    color: rgb(98, 54, 82);
+    border-radius: 6px;
     margin: 0 auto;
   }
 
@@ -94,7 +97,7 @@
   }
 
   .call-button:hover {
-    filter: brightness(80%);
+    filter: brightness(95%);
   }
 
   .error {

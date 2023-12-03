@@ -1,4 +1,4 @@
-const Dialer = require('dialer/src/Dialer');
+// const Dialer = require('dialer/src/Dialer');
 const express = require ('express');
 const httpServer = express();
 const dialer = require('dialer').Dialer;
@@ -29,7 +29,7 @@ httpServer.get('/call/:number1/:number2', (req, res) => {
 
 httpServer.use(bodyParser.json());
 httpServer.use(cors());
-httpServer.use((req, res, next) => {
+httpServer.use((res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
   next();
@@ -47,8 +47,8 @@ httpServer.post('/call/', async (req, res) => {
     let currentStatus = await bridge.getStatus();
 
     if (currentStatus !== oldStatus) {
-    oldStatus = currentStatus
-    io.emit('status', currentStatus)
+      oldStatus = currentStatus
+      io.emit('status', currentStatus)
     }
 
     if (
