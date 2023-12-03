@@ -36,7 +36,7 @@ httpServer.use((res, next) => {
 
 httpServer.post('/call/', async (req, res) => {
   const number1 = req.body.number;
-  const number2 = '780725564';
+  const number2 = '';
   console.log('Dzwonie', number1, number2);
   bridge = await dialer.call(number1, number2);
 
