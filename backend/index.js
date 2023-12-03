@@ -6,14 +6,16 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-httpServer.listen(3001, function () {
+const serverInstance = httpServer.listen(3001, function () {
   console.log('Example app listening on port 3001!');
 });
 
+const io = new Server(serverInstance);
+
 const config = {
   url: 'http://uni-call.fcc-online.pl',
-  login: 'focus15',
-  password: '#l9upoqwedsd'
+  login: '',
+  password: ''
 };
 
 dialer.configure(config);
@@ -58,7 +60,7 @@ httpServer.post('/call/', async (req, res) => {
         console.log('stop');
         clearInterval(interval);
     }
-  }, 2000);
+  }, 1000);
 
   res.json({ id: '123', status: bridge.STATUSES.NEW });
 });
