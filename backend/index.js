@@ -28,7 +28,7 @@ httpServer.get('/call/:number1/:number2', (req, res) => {
 
 httpServer.use(bodyParser.json());
 httpServer.use(cors());
-httpServer.use((res, next) => {
+httpServer.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
   next();

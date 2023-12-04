@@ -29,12 +29,8 @@
           body: JSON.stringify({ number: this.number })
         });
 
-        if (responseStream.status !== 500 || responseStream.status !== 404) {
-          let response = await responseStream.json();
-          this.$router.push({ name: 'ringing', params: { callsId: response.id }});
-        } else {
-          this.$router.push({ name: 'failed' });
-        }
+        let response = await responseStream.json();
+        this.$router.push({ name: 'ringing', params: { callsId: response.id }});
       }
     }
   }

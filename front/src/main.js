@@ -5,4 +5,3 @@ import ViewManager from './services/ViewManager';
 
 ViewManager.checkStatus();
 createApp(App).use(router).mount('#app');
-
